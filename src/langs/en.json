@@ -1,0 +1,62 @@
+{
+    "navbar": {
+        "job": "FullStack develop",
+        "menu": [
+            {
+                "name": "Home",
+                "url": "/"
+            },
+            {
+                "name": "About me",
+                "url": "/about"
+            },
+            {
+                "name": "Projects",
+                "url": "/projects"
+            },
+            {
+                "name": "Contacts",
+                "url": "/contact"
+            }
+        ]
+    },
+    "body": {
+        "home": {
+            "about": {
+                "title": "About me",
+                "body": "My name is Leodeymison"
+            },
+            "tec": {
+                "title": "Technologies",
+                "tecs": [
+                    {
+                        "name": "JavaScript",
+                        "level": [true, true, true, true, true, true, true, true, true, false]
+                    },
+                    {
+                        "name": "TypeScript",
+                        "level": [true, true, true, true, true, true, true, false, false, false]
+                    }
+                ]
+            },
+            "projects": {
+                "title": "Projects",
+                "list": [
+                    {
+                        "id": 1,
+                        "title": "project 01",
+                        "image": "https://st4.depositphotos.com/1907633/19947/i/950/depositphotos_199473306-stock-photo-virtual-screen-dashboard-project-management.jpg"
+                    },
+                    {
+                        "id": 2,
+                        "title": "project 02",
+                        "image": "https://st4.depositphotos.com/1907633/19947/i/950/depositphotos_199473306-stock-photo-virtual-screen-dashboard-project-management.jpg"
+                    }
+                ]
+            },
+            "contact": {
+                "title": "Contacts"
+            }
+        }
+    }
+}
