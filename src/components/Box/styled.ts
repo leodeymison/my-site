@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const _Boxed = styled('div')`
     padding: 1em;
-    box-shadow: 5px 5px 15px #1c0432;
-    border: solid 1px #371656;
+    box-shadow: 5px 5px 15px ${props => props.theme.colors.boxshadow};
+    border: solid 1px ${props => props.theme.colors.border};
     margin-bottom: 2em;
     border-radius: 5px;
 `
@@ -11,10 +11,10 @@ export const _Boxed = styled('div')`
 
 export const _Level = styled('li')`
     display: flex;
-    border: solid 1px #371656;
+    border: solid 1px ${props => props.theme.colors.border};
     align-items: center;
     padding: 0.3em;
-    border-left: solid 5px #371656;
+    border-left: solid 5px ${props => props.theme.colors.border};
     margin-bottom: 10px;
     border-radius: 5px;
     p {
@@ -52,7 +52,7 @@ export const _BoxCard = styled('div')`
         display: flex;
         width: 30.85%;
         padding: 1em 0.5%;
-        border: solid 2px blueviolet;
+        border: solid 2px ${props => props.theme.colors.terc};
         margin: .3em 0.5%;
     }
     

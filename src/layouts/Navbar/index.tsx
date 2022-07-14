@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
- 
+import React from 'react';
 // Styled-components
 import { _Header, _BoxPeople, _Menu, _config, _FontPlus, _Language, _Color } from './styled';
 
@@ -15,12 +15,8 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { CgMathMinus } from 'react-icons/cg';
 import { MdDarkMode } from 'react-icons/md';
 import { BsFillSunFill } from 'react-icons/bs'
-import { useState } from 'react';
 
-const Navbar = (data:NavbarType) => {
-    const [typeColor, setTypeColor] = useState(true)
-    const { lang, setLang } = data
-
+const Navbar:React.FC<NavbarType> = ({lang, setLang, theme, toggleTheme}) => {
     function chargeLanguage(e:{target: {value: string}}){
         const option:string = e.target.value
         if(option === 'pt-br' || option === 'en'){
@@ -31,15 +27,15 @@ const Navbar = (data:NavbarType) => {
         }
     }
 
-    function chargeColor(){
-        setTypeColor(!typeColor)
-    }
-
     function fontPlus(){
         console.log('mais')
     }
     function fontLess(){
         console.log('menos')
+    }
+
+    function toggleThemeFunc(){
+        toggleTheme()
     }
 
     return (
@@ -65,9 +61,9 @@ const Navbar = (data:NavbarType) => {
                     </span>
                 </_FontPlus>
                 <_Color>
-                    <span onClick={chargeColor}>
+                    <span onClick={toggleThemeFunc}>
                         {
-                            typeColor ? <MdDarkMode /> : <BsFillSunFill />
+                            theme == 'dark' ? <MdDarkMode /> : <BsFillSunFill />
                         }
                     </span>
                 </_Color>
@@ -78,7 +74,7 @@ const Navbar = (data:NavbarType) => {
                     alt="Foto do leodeymison alcantara" />
                 <br />
                 <h1>Leodeymison A.</h1>
-                <p>{data.lang.job}</p>
+                <p>{lang.job}</p>
             </_BoxPeople>
             <_Menu>
                 <ul>

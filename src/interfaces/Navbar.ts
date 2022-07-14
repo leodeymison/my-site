@@ -6,5 +6,7 @@ export type NavbarType = {
             name: string,
         }>
     },
-    setLang: Function
+    setLang: Function,
+    toggleTheme: Function,
+    theme: string
 }

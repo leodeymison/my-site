@@ -1,3 +1,5 @@
+import React from 'react';
+
 // Componets
 import BoxInfor from '../../components/Box/BoxInfor';
 
@@ -7,8 +9,7 @@ import { _Container } from '../../styled';
 // interfaces
 import { HomeType } from '../../interfaces/Home';
 
-const Home = (data:HomeType) => {
-    const { lang } = data
+const Home:React.FC<HomeType> = ({lang}) => {
 
     return (
         <>

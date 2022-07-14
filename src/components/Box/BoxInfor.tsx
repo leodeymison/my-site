@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import React from 'react';
 
 // styleds
 import { _Boxed, _Level , _LevelElement, _BoxCard, _Card, _Contact, _Sociais, _Form } from './styled';
@@ -25,24 +26,24 @@ type BoxInforType = {
     contact?: boolean
 }
 
-const BoxInfor = (data: BoxInforType) => {
+const BoxInfor:React.FC<BoxInforType> = ({title, body, contact, projects, tecs}) => {
     return (
         <_Boxed>
-            <h2>{data.title}</h2>
+            <h2>{title}</h2>
             { 
-                data.body && (
+                body && (
                     <p>
                         <br />
-                        {data.body}
+                        {body}
                     </p>
                 )
             }
             {
-                data.tecs && (
+                tecs && (
                     <ul>
                         <br />
                         {
-                            data.tecs.map((tec, index) => (
+                            tecs.map((tec, index) => (
                                 <_Level key={index}>
                                     <p>{tec.name}</p>
                                     {
@@ -57,10 +58,10 @@ const BoxInfor = (data: BoxInforType) => {
                 )
             }
             {
-                data.projects && (
+                projects && (
                     <_BoxCard>
                         {
-                            data.projects.map((project, index) => (
+                            projects.map((project, index) => (
                                 <Link key={index} to={`/project/${project.id}`}>
                                     <_Card>
                                         <img 
@@ -75,7 +76,7 @@ const BoxInfor = (data: BoxInforType) => {
                 )
             }
             {
-                data.contact && (
+                contact && (
                     <_Contact>
                         <_Sociais>
                             <a href="">

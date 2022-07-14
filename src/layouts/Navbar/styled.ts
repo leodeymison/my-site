@@ -5,7 +5,7 @@ export const _Header = styled('header')`
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: #09050c;
+    background-color: ${props => props.theme.colors.primary};
 `
 
 export const _BoxPeople = styled('div')`
@@ -71,12 +71,12 @@ export const _FontPlus = styled('div')`
     span {
         cursor: pointer;
         svg {
-            font-size: 12px;
+            font-size: ${props => props.theme.fonts.span}px;
         }
     }
     p {
         padding: .2em;
-        font-size: 15px;
+        font-size: ${props => props.theme.fonts.p}px;
         font-weight: 600;
     }
 `

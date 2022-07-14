@@ -5,10 +5,10 @@ export const _Global = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #ddd;
+        color: ${props => props.theme.colors.text};
     };
     select {
-        color: #ddd;
+        color: ${props => props.theme.colors.text};
         background-color: #ddd0;
     }
     input:focus, select:focus, button:focus, textarea:focus {
@@ -24,6 +24,15 @@ export const _Global = createGlobalStyle`
     li {
         list-style-type: none;
     }
+    p, a {
+        font-size: ${props => props.theme.fonts.p}px;
+    }
+    h1 {
+        font-size: ${props => props.theme.fonts.h1}px;
+    }
+    h2 {
+        font-size: ${props => props.theme.fonts.h2}px;
+    }
 `
 type ContainerProps = {
     dplay?: 'flex' | 'block',
@@ -31,54 +40,10 @@ type ContainerProps = {
     justifyC?: 'center' | 'flex-end' | 'flex-start' | 'space-between'
 }
 
-export const theme = {
-    colors: {
-        white: '#eee',
-        black: '#111',
-        gray: '#333',
-        lightGray: 'CCC'
-    },
-    bColor: {
-        dark: {
-            primary: "#000"
-        },
-        ligth: {
-            primary: "#fff"
-        }
-    },
-    sizes: {
-        xsmall: '1rem',
-        small: '1.2rem',
-        medium: '1.6rem',
-        large: '2.4rem',
-        xlarge: '3.2rem',
-        xxlarge: '4.0rem'
-    },
-}
-
-export type HeadingProps = {
-    color?: keyof typeof theme.colors,
-    size?: keyof typeof theme.sizes,
-    fontWeight?: 100 | 400 | 700,
-    level?: 1 | 2 | 3 | 4 | 5 | 6,
-    textAlign?: 'center' | 'end' | 'justify' | 'left' | 'right' | 'start' |
-    'inherit' | 'inherit' | 'initial' | 'unset'
-}
-
 export const _Container = styled.div<ContainerProps>`
     display: ${props => props.dplay || "block"};
     padding: ${props => props.pd+'em' || '0em' };
     justify-content: ${props => props.justifyC || 'flex-start'};
-`;
-
-export const _Heading = styled('h1').attrs<HeadingProps>(({ level }) => ({
-  as: `h${level}`
-}))<HeadingProps>`
-    font-size: ${props => props.size};
-    color: ${props => props.color};
-    font-weight: ${props => props.fontWeight};
-    text-align: ${props => props.textAlign || 'left'};
-    width: 100%;
 `;
 
 
@@ -90,7 +55,7 @@ export const _Section = styled('section')`
     flex-direction: column;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: #13081b;
+    background-color: ${props => props.theme.colors.secund};
     padding: 0 2em;
     &::-webkit-scrollbar {
         width: 8px;
