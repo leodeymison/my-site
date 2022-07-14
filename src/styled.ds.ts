@@ -11,12 +11,5 @@ declare module "styled-components" {
             boxshadow: string,
             terc: string
         },
-        fonts: {
-            p: number,
-            span: number,
-            h1: number,
-            h2: number,
-            h3: number
-        }
     }
 }

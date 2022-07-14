@@ -45,28 +45,19 @@ export const _LevelElement = styled('span')<LevelElementType>`
 
 export const _BoxCard = styled('div')`
     display: flex;
+    flex-direction: column;    
     width: 100%;
-    flex-wrap: wrap;
     margin-top: 15px;
-    a {
-        display: flex;
-        width: 30.85%;
-        padding: 1em 0.5%;
-        border: solid 2px ${props => props.theme.colors.terc};
-        margin: .3em 0.5%;
-    }
-    
 `
 
 export const _Card = styled('div')`
     display: flex;
-    flex-direction: column;
-    img {
-        width: 100%;
-    }
-    h2 {
-        padding: .3em;
-    }
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    border: solid 1px ${props => props.theme.colors.terc};
+    padding: .8em 1em;
+    margin: .3em 0;
 `
 
 export const _Contact = styled('div')`
@@ -102,4 +93,14 @@ export const _Form = styled('form')`
     flex-direction: column;
     width: 100%;
     margin-left: 10px;
+`
+
+export const _Icon = styled('div')`
+    display: flex;
+    
+    img {
+        height: 25px;
+        height: 25px;
+        margin: 0 5px;
+    }
 `

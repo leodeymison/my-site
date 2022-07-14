@@ -9,24 +9,24 @@ import { _Container } from '../../styled';
 // interfaces
 import { HomeType } from '../../interfaces/Home';
 
-const Home:React.FC<HomeType> = ({lang}) => {
+const Home:React.FC<HomeType> = ({ pags }) => {
 
     return (
         <>
             <BoxInfor 
-                title={lang.about.title}
-                body={lang.about.body}
+                title={pags.about.title}
+                body={pags.about.body}
             />
             <BoxInfor 
-                title={lang.tec.title}
-                tecs={lang.tec.tecs}
+                title={pags.tec.title}
+                tecs={pags.tec.tecs}
             />
             <BoxInfor 
-                title={lang.projects.title}
-                projects={lang.projects.list}
+                title={pags.projects.title}
+                projects={pags.projects.list}
             />
             <BoxInfor 
-                title={lang.contact.title}
+                title={pags.contact.title}
                 contact={true}
             />
         </>

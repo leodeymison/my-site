@@ -25,13 +25,13 @@ export const _Global = createGlobalStyle`
         list-style-type: none;
     }
     p, a {
-        font-size: ${props => props.theme.fonts.p}px;
+        font-size: 16px;
     }
     h1 {
-        font-size: ${props => props.theme.fonts.h1}px;
+        font-size: 32px;
     }
     h2 {
-        font-size: ${props => props.theme.fonts.h2}px;
+        font-size: 24px;
     }
 `
 type ContainerProps = {
@@ -64,4 +64,8 @@ export const _Section = styled('section')`
         width: 8px;
         background-color: blueviolet;
     }
+`
+
+export const _MinHeight = styled('div')`
+    min-height: 87vh;
 `

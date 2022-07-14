@@ -8,40 +8,16 @@ import author from '../../assets/author.jpg'
 
 // interfaces
 import { NavbarType } from '../../interfaces/Navbar';
-import langs from '../../langs';
 
 // icons
-import { AiOutlinePlus } from 'react-icons/ai';
-import { CgMathMinus } from 'react-icons/cg';
 import { MdDarkMode } from 'react-icons/md';
 import { BsFillSunFill } from 'react-icons/bs'
 
-const Navbar:React.FC<NavbarType> = ({lang, setLang, theme, toggleTheme}) => {
-    function chargeLanguage(e:{target: {value: string}}){
-        const option:string = e.target.value
-        if(option === 'pt-br' || option === 'en'){
-            setLang(langs[option])
-        }
-        else {
-            setLang(langs['pt-br'])
-        }
-    }
-
-    function fontPlus(){
-        console.log('mais')
-    }
-    function fontLess(){
-        console.log('menos')
-    }
-
-    function toggleThemeFunc(){
-        toggleTheme()
-    }
-
+const Navbar:React.FC<NavbarType> = ({langParams, setLang, theme, toggleTheme, lang}) => {
     return (
         <_Header>
             <_config>
-                <_Language onChange={chargeLanguage}>
+                <_Language onChange={e => setLang(e.target.value)} value={lang}>
                     <option value="pt-br">
                         Pt-Br
                     </option>
@@ -49,19 +25,8 @@ const Navbar:React.FC<NavbarType> = ({lang, setLang, theme, toggleTheme}) => {
                         En
                     </option>
                 </_Language>
-                <_FontPlus>
-                    <span onClick={fontLess}>
-                        <CgMathMinus />
-                    </span>
-                    <p>
-                        Aa
-                    </p>
-                    <span onClick={fontPlus}>
-                        <AiOutlinePlus />
-                    </span>
-                </_FontPlus>
                 <_Color>
-                    <span onClick={toggleThemeFunc}>
+                    <span onClick={toggleTheme}>
                         {
                             theme == 'dark' ? <MdDarkMode /> : <BsFillSunFill />
                         }
@@ -74,12 +39,12 @@ const Navbar:React.FC<NavbarType> = ({lang, setLang, theme, toggleTheme}) => {
                     alt="Foto do leodeymison alcantara" />
                 <br />
                 <h1>Leodeymison A.</h1>
-                <p>{lang.job}</p>
+                <p>{langParams.job}</p>
             </_BoxPeople>
             <_Menu>
                 <ul>
                     {
-                        lang.menu.map((l, index) => (
+                        langParams.menu.map((l, index) => (
                             <li key={index}>
                                 <Link to={ l.url }>{ l.name }</Link>
                             </li>

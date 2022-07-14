@@ -1,5 +1,3 @@
-import font from "../font"
-
 export default {
     title: "dark",
     colors: {
@@ -11,5 +9,4 @@ export default {
         boxshadow: "#1c0432",
         terc: "blueviolet"
     },
-    fonts: font
 }

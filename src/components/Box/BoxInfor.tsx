@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 
 // styleds
-import { _Boxed, _Level , _LevelElement, _BoxCard, _Card, _Contact, _Sociais, _Form } from './styled';
+import { _Boxed, _Level , _LevelElement, _BoxCard, _Card, _Contact, _Sociais, _Form, _Icon } from './styled';
 
 // icons
 import { AiOutlineInstagram, AiFillLinkedin, AiFillGithub } from 'react-icons/ai'
@@ -10,21 +10,10 @@ import { AiOutlineInstagram, AiFillLinkedin, AiFillGithub } from 'react-icons/ai
 // Components
 import Input from '../Forms/Input';
 import Textarea from '../Forms/Textarea';
+import ButtonLink from '../Forms/ButtonLink';
 
-type BoxInforType = {
-    title: string,
-    body?: string,
-    tecs?: Array<{
-        name: string,
-        level: Array<boolean>
-    }>,
-    projects?: Array<{
-        title: string,
-        image: string,
-        id: string | number
-    }>,
-    contact?: boolean
-}
+// interfaces
+import { BoxInforType } from '../../interfaces/BoxInfor';
 
 const BoxInfor:React.FC<BoxInforType> = ({title, body, contact, projects, tecs}) => {
     return (
@@ -62,14 +51,26 @@ const BoxInfor:React.FC<BoxInforType> = ({title, body, contact, projects, tecs})
                     <_BoxCard>
                         {
                             projects.map((project, index) => (
-                                <Link key={index} to={`/project/${project.id}`}>
-                                    <_Card>
-                                        <img 
-                                            src={project.image}
-                                            alt={project.title} />
-                                        <h2>{project.title}</h2>
-                                    </_Card>
-                                </Link>
+                                <_Card key={index}>
+                                    <h3>{project.title}</h3>
+                                    <_Icon>
+                                        {
+                                            project.icons.map((icon, i) => (
+                                                icon.length > 0 && <img key={i} src={icon} alt={project.title} />
+                                            ))
+                                        }
+                                    </_Icon>
+                                    <div>
+                                        {
+                                            project.links.map(link => (
+                                                <ButtonLink 
+                                                    blanck={link.target} 
+                                                    text={link.name}
+                                                    url={link.url} />
+                                            ))
+                                        }
+                                    </div>
+                                </_Card>
                             ))
                         }
                     </_BoxCard>

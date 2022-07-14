@@ -71,12 +71,12 @@ export const _FontPlus = styled('div')`
     span {
         cursor: pointer;
         svg {
-            font-size: ${props => props.theme.fonts.span}px;
+            font-size: 12px;
         }
     }
     p {
         padding: .2em;
-        font-size: ${props => props.theme.fonts.p}px;
+        font-size: 16px;
         font-weight: 600;
     }
 `
