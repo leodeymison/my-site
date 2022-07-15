@@ -1,10 +1,15 @@
 export type NavbarType = {
-    lang: {
+    langParams: {
         job: string
         menu: Array<{
             url: string,
             name: string,
         }>
     },
-    setLang: Function
+    lang: string,
+    setLang(lang:string): void,
+    toggleTheme():void,
+    theme: string,
+    menu: boolean,
+    OpenClosedMenu():void
 }

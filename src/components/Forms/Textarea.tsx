@@ -1,8 +1,7 @@
 import { _Textarea } from './styled';
 
-type TextareaType = {
-    placeholder?: string
-}
+// interfaces
+import { TextareaType } from '../../interfaces/Textarea';
 
 const Textarea = (data:TextareaType) => {
     return <_Textarea placeholder={data.placeholder} />

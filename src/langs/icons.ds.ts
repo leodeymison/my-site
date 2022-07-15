@@ -1,0 +1,12 @@
+export const js = "https://raw.githubusercontent.com/voodootikigod/logo.js/master/js.png";
+export const ts = "https://camo.githubusercontent.com/fc9113cfa08cba6a731800ded8a98f520e484a5ea5777671964a66b9779a8692/68747470733a2f2f63646e2e69636f6e73636f75742e636f6d2f69636f6e2f667265652f706e672d3531322f747970657363726970742d313137343936352e706e67";
+export const node = "https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_node_icon_130301.png";
+export const react = "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png";
+export const vue = "https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_vue_icon_130078.png";
+export const mysql = "https://camo.githubusercontent.com/f0a5f0454bc316badd34059d69ffb50cb074e165cb86285ec2147da051651dea/68747470733a2f2f74682e62696e672e636f6d2f74682f69642f522e31383733393830353136343966643665663261323561616233356365653931353f72696b3d7466664667384e6b6c384f305351267269753d687474702533612532662532667777772e69636f6e652d706e672e636f6d253266706e67253266353225326635323438352e706e672665686b3d6a444d767a253262495875546c544739585230764474766148335225326259724f5032337a5266754a336551564734253364267269736c3d267069643d496d6752617726723d3026737265733d31267372657363743d31";
+export const mongo = "https://camo.githubusercontent.com/bdaf059d971d6322fe41c2f893eeffb222dba7a11331e39669efe76a2f1c50b4/68747470733a2f2f74682e62696e672e636f6d2f74682f69642f4f49502e3565376a46614639344e663159526348667263667151486149723f7069643d496d674465742672733d31";
+export const graphql = "https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_graphql_icon_130564.png";
+export const python = "https://camo.githubusercontent.com/c9d72d82e8aba9813591876e685e2efdd51280c58f31e91fa80cc57e35939b1a/68747470733a2f2f74682e62696e672e636f6d2f74682f69642f4f49502e4b713471344c566131323276346730477648694f6b41486148613f7069643d496d674465742672733d31";
+export const html = "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg";
+export const css = "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg";
+export const styled = "https://github.githubassets.com/images/icons/emoji/unicode/1f485.png"

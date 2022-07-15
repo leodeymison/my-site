@@ -1,7 +1,20 @@
 import { Link } from 'react-router-dom';
+import React from 'react';
 
 // styleds
-import { _Boxed, _Level , _LevelElement, _BoxCard, _Card, _Contact, _Sociais, _Form } from './styled';
+import { 
+    _Boxed,
+    _Level , 
+    _LevelElement, 
+    _BoxCard, 
+    _Card, 
+    _Contact, 
+    _Sociais, 
+    _Form, 
+    _Icon, 
+    _BoxButton,
+    _List
+} from './styled';
 
 // icons
 import { AiOutlineInstagram, AiFillLinkedin, AiFillGithub } from 'react-icons/ai'
@@ -9,47 +22,39 @@ import { AiOutlineInstagram, AiFillLinkedin, AiFillGithub } from 'react-icons/ai
 // Components
 import Input from '../Forms/Input';
 import Textarea from '../Forms/Textarea';
+import ButtonLink from '../Forms/ButtonLink';
 
-type BoxInforType = {
-    title: string,
-    body?: string,
-    tecs?: Array<{
-        name: string,
-        level: Array<boolean>
-    }>,
-    projects?: Array<{
-        title: string,
-        image: string,
-        id: string | number
-    }>,
-    contact?: boolean
-}
+// interfaces
+import { BoxInforType } from '../../interfaces/BoxInfor';
 
-const BoxInfor = (data: BoxInforType) => {
+const BoxInfor:React.FC<BoxInforType> = ({title, body, contact, projects, tecs}) => {
     return (
         <_Boxed>
-            <h2>{data.title}</h2>
+            <h2>{title}</h2>
             { 
-                data.body && (
+                body && (
                     <p>
                         <br />
-                        {data.body}
+                        {body}
                     </p>
                 )
             }
             {
-                data.tecs && (
+                tecs && (
                     <ul>
                         <br />
                         {
-                            data.tecs.map((tec, index) => (
+                            tecs.map((tec, index) => (
                                 <_Level key={index}>
                                     <p>{tec.name}</p>
-                                    {
-                                        tec.level.map((level, i) => (
-                                            <_LevelElement key={i} bcolor={level}></_LevelElement>
-                                        ))
-                                    }
+                                    <_List>
+                                        {
+                                            tec.level.map((level, i) => (
+                                                <_LevelElement key={i} bcolor={level}></_LevelElement>
+                                            ))
+                                        }
+                                    <p>{String((tec.level.filter(level => level == true)).length).padStart(2, '0')}/{tec.level.length}</p>
+                                    </_List>
                                 </_Level>
                             ))
                         }
@@ -57,25 +62,38 @@ const BoxInfor = (data: BoxInforType) => {
                 )
             }
             {
-                data.projects && (
+                projects && (
                     <_BoxCard>
                         {
-                            data.projects.map((project, index) => (
-                                <Link key={index} to={`/project/${project.id}`}>
-                                    <_Card>
-                                        <img 
-                                            src={project.image}
-                                            alt={project.title} />
-                                        <h2>{project.title}</h2>
-                                    </_Card>
-                                </Link>
+                            projects.map((project, index) => (
+                                <_Card key={index}>
+                                    <h3>{project.title}</h3>
+                                    <_Icon>
+                                        {
+                                            project.icons.map((icon, i) => (
+                                                icon.length > 0 && <img key={i} src={icon} alt={project.title} />
+                                            ))
+                                        }
+                                    </_Icon>
+                                    <_BoxButton>
+                                        {
+                                            project.links.map((link, index) => (
+                                                <ButtonLink 
+                                                    key={index}
+                                                    blanck={link.target} 
+                                                    text={link.name}
+                                                    url={link.url} />
+                                            ))
+                                        }
+                                    </_BoxButton>
+                                </_Card>
                             ))
                         }
                     </_BoxCard>
                 )
             }
             {
-                data.contact && (
+                contact && (
                     <_Contact>
                         <_Sociais>
                             <a href="">
@@ -92,10 +110,10 @@ const BoxInfor = (data: BoxInforType) => {
                             </a>
                         </_Sociais>
                         <_Form action="">
-                            <Input type="text" placeholder='Nome' />
-                            <Input type="text" placeholder='Assunto' />
-                            <Textarea placeholder='Mensagem'></Textarea>
-                            <Input type="submit" value="Enviar" />
+                            <Input type="text" placeholder={contact.name} />
+                            <Input type="text" placeholder={contact.subject} />
+                            <Textarea placeholder={contact.message}></Textarea>
+                            <Input type="submit" value={contact.button} />
                         </_Form>
                     </_Contact>
                 )

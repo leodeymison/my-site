@@ -1,51 +1,34 @@
 import { Link } from 'react-router-dom';
- 
+import React from 'react';
+
 // Styled-components
-import { _Header, _BoxPeople, _Menu, _config, _FontPlus, _Language, _Color } from './styled';
+import { 
+    _Header, 
+    _BoxPeople, 
+    _Menu, 
+    _config, 
+    _FontPlus, 
+    _Language, 
+    _Color 
+} from './styled';
+import { _MenuIcon } from '../../styled';
 
 // Images
 import author from '../../assets/author.jpg'
 
 // interfaces
 import { NavbarType } from '../../interfaces/Navbar';
-import langs from '../../langs';
 
 // icons
-import { AiOutlinePlus } from 'react-icons/ai';
-import { CgMathMinus } from 'react-icons/cg';
 import { MdDarkMode } from 'react-icons/md';
 import { BsFillSunFill } from 'react-icons/bs'
-import { useState } from 'react';
+import { AiOutlineMenuFold } from 'react-icons/ai'
 
-const Navbar = (data:NavbarType) => {
-    const [typeColor, setTypeColor] = useState(true)
-    const { lang, setLang } = data
-
-    function chargeLanguage(e:{target: {value: string}}){
-        const option:string = e.target.value
-        if(option === 'pt-br' || option === 'en'){
-            setLang(langs[option])
-        }
-        else {
-            setLang(langs['pt-br'])
-        }
-    }
-
-    function chargeColor(){
-        setTypeColor(!typeColor)
-    }
-
-    function fontPlus(){
-        console.log('mais')
-    }
-    function fontLess(){
-        console.log('menos')
-    }
-
+const Navbar:React.FC<NavbarType> = ({langParams, setLang, theme, toggleTheme, lang, menu, OpenClosedMenu}) => {
     return (
-        <_Header>
+        <_Header menu={menu}>
             <_config>
-                <_Language onChange={chargeLanguage}>
+                <_Language onChange={e => setLang(e.target.value)} value={lang}>
                     <option value="pt-br">
                         Pt-Br
                     </option>
@@ -53,24 +36,17 @@ const Navbar = (data:NavbarType) => {
                         En
                     </option>
                 </_Language>
-                <_FontPlus>
-                    <span onClick={fontLess}>
-                        <CgMathMinus />
-                    </span>
-                    <p>
-                        Aa
-                    </p>
-                    <span onClick={fontPlus}>
-                        <AiOutlinePlus />
-                    </span>
-                </_FontPlus>
                 <_Color>
-                    <span onClick={chargeColor}>
+                    <span onClick={toggleTheme}>
                         {
-                            typeColor ? <MdDarkMode /> : <BsFillSunFill />
+                            theme == 'dark' ? <MdDarkMode /> : <BsFillSunFill />
                         }
                     </span>
+                    
                 </_Color>
+                <_MenuIcon onClick={OpenClosedMenu}>
+                    <AiOutlineMenuFold />
+                </_MenuIcon>
             </_config>
             <_BoxPeople>
                 <img 
@@ -78,12 +54,12 @@ const Navbar = (data:NavbarType) => {
                     alt="Foto do leodeymison alcantara" />
                 <br />
                 <h1>Leodeymison A.</h1>
-                <p>{data.lang.job}</p>
+                <p>{langParams.job}</p>
             </_BoxPeople>
             <_Menu>
                 <ul>
                     {
-                        lang.menu.map((l, index) => (
+                        langParams.menu.map((l, index) => (
                             <li key={index}>
                                 <Link to={ l.url }>{ l.name }</Link>
                             </li>
