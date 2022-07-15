@@ -1,5 +1,7 @@
 export type InputType = {
     type: string,
     placeholder?: string,
-    value?: string
+    value?: string,
+    name?: string,
+    hover?: boolean
 }

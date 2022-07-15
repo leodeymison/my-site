@@ -114,6 +114,7 @@ const en:LangsType = {
         contact: {
             title: "Contacts",
             name: "Name",
+            email: "Email",
             subject: 'Subject',
             message: "Mmessage",
             button: "Send",

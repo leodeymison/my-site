@@ -1,3 +1,4 @@
 export type TextareaType = {
-    placeholder?: string
+    placeholder?: string,
+    name?: string
 }
