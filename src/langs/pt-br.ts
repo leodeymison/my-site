@@ -32,7 +32,7 @@ var ptbr:LangsType = {
                 Sou um programador FullStack apaixonado por criar ferramentas que mudam vidas e um 
                 viciado em conhecimento. 
                 A mente que se abre a uma nova ideia jamais 
-                voltará ao seu tamanho original - Albert Einstein:
+                voltará ao seu tamanho original - Albert Einstein
             `
 
         },
