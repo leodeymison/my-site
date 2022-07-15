@@ -39,6 +39,7 @@ export type LangsType = {
         contact: {
             title: string,
             name: string,
+            email: string,
             subject: string,
             message: string,
             button: string,

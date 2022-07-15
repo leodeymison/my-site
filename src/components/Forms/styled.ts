@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const InputStyled = styled('input')`
+type InputStyledType = {
+    hoverOption: boolean
+}
+
+export const InputStyled = styled('input')<InputStyledType>`
     padding: .5em;
     margin-bottom: 10px;
     border: solid 1px ${props => props.theme.colors.terc};
@@ -8,6 +12,13 @@ export const InputStyled = styled('input')`
     transition: 0.3s;
     background-color: #0000;
     padding: .7em;
+    ${
+        props => props.hoverOption == true && (
+            `&:hover{
+                background-color: ${props.theme.colors.terc};
+            }`
+        )
+    }
     &[type = 'submit']{
         cursor: pointer;
     }

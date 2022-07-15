@@ -117,6 +117,7 @@ var ptbr:LangsType = {
         contact: {
             title: "Contatos",
             name: "Nome",
+            email: "E-mail",
             subject: 'Assunto',
             message: "Mensagem",
             button: "Enviar",

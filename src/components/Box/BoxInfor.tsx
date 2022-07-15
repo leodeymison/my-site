@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 // styleds
 import { 
@@ -22,13 +22,35 @@ import { AiOutlineInstagram, AiFillLinkedin, AiFillGithub } from 'react-icons/ai
 import Input from '../Forms/Input';
 import Textarea from '../Forms/Textarea';
 import ButtonLink from '../Forms/ButtonLink';
+import Message from '../Message';
 
 // interfaces
 import { BoxInforType } from '../../interfaces/BoxInfor';
 
+// emailjs
+import emailjs from '@emailjs/browser';
+
 const BoxInfor:React.FC<BoxInforType> = ({title, body, contact, projects, tecs}) => {
+    const form = useRef<any>();
+    const [messageError, setMessageError] = useState(false)
+    const [messageOk, setMessageOk] = useState(false)
+
+    function sendEmail(e:any){
+        e.preventDefault();
+
+        emailjs.sendForm('service_ukadse4', 'template_2wic0hl', form.current, 'xiqrwpwaDVrzDs1tL')
+        .then(() => {
+            setMessageOk(!messageOk)
+        }, () => {
+            setMessageError(!messageError)
+        });
+    }
+
     return (
         <BoxedStyled>
+            { messageOk && <Message active={setMessageOk} text="Email enviado com sucesso" type="ok" /> }
+            { messageError && <Message active={setMessageError} text="Falha ao enviar email" type="error" /> }
+
             <h2>{title}</h2>
             { 
                 body && (
@@ -108,11 +130,12 @@ const BoxInfor:React.FC<BoxInforType> = ({title, body, contact, projects, tecs})
                                 LinkedIn
                             </a>
                         </SociaisStyled>
-                        <FormStyled action="">
-                            <Input type="text" placeholder={contact.name} />
-                            <Input type="text" placeholder={contact.subject} />
-                            <Textarea placeholder={contact.message}></Textarea>
-                            <Input type="submit" value={contact.button} />
+                        <FormStyled ref={form} onSubmit={sendEmail}>
+                            <Input type="text" placeholder={contact.name} name="name" />
+                            <Input type="text" placeholder={contact.email} name="email" />
+                            <Input type="text" placeholder={contact.subject} name="subject" />
+                            <Textarea placeholder={contact.message} name="message"></Textarea>
+                            <Input type="submit" value={contact.button} hover={true} />
                         </FormStyled>
                     </ContactStyled>
                 )

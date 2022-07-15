@@ -5,6 +5,7 @@ export type ContactType = {
 export type Contact = {
     title: string,
     name: string,
+    email: string,
     subject: string,
     message: string,
     button: string,

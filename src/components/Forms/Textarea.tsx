@@ -1,10 +1,13 @@
+import React from 'react';
+
+// Styled
 import { TextareaStyled } from './styled';
 
 // interfaces
 import { TextareaType } from '../../interfaces/Textarea';
 
-const Textarea = (data:TextareaType) => {
-    return <TextareaStyled placeholder={data.placeholder} />
+const Textarea:React.FC<TextareaType> = ({ placeholder, name }) => {
+    return <TextareaStyled placeholder={placeholder} name={name}></TextareaStyled>
 }
 
 export default Textarea
