@@ -132,7 +132,7 @@ const BoxInfor:React.FC<BoxInforType> = ({title, body, contact, projects, tecs})
                         </SociaisStyled>
                         <FormStyled ref={form} onSubmit={sendEmail}>
                             <Input type="text" placeholder={contact.name} name="name" />
-                            <Input type="text" placeholder={contact.email} name="email" />
+                            <Input type="email" placeholder={contact.email} name="email" />
                             <Input type="text" placeholder={contact.subject} name="subject" />
                             <Textarea placeholder={contact.message} name="message"></Textarea>
                             <Input type="submit" value={contact.button} hover={true} />
