@@ -1,11 +1,34 @@
 import styled from 'styled-components';
 
-export const _Header = styled('header')`
+
+type HeaderType = {
+    menu: boolean,
+}
+
+export const _Header = styled('header')<HeaderType>`
     width: 30%;
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
     background-color: ${props => props.theme.colors.primary};
+    transition: 0.3s;
+    @media (max-width: 1200px){
+        transition: 0.3s;
+        display: block;
+        transform: translateX(${props => props.menu ? "0%" : "-100%"});
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    @media (max-width: 900px){
+        width: 50%;
+    }
+    @media (max-width: 700px){
+        width: 70%;
+    }
+    @media (max-width: 500px){
+        width: 100%;
+    }
 `
 
 export const _BoxPeople = styled('div')`
@@ -39,11 +62,11 @@ export const _Menu = styled('nav')`
             a {
                 text-align: center;
                 background-color: #0000;
-                border: solid 1px blueviolet;
+                border: solid 1px ${props => props.theme.colors.terc};
                 padding: .5em 0;
                 border-radius: 5px;
                 &:hover {
-                    background-color: blueviolet;
+                    background-color: ${props => props.theme.colors.terc};
                 }
             }
         }
@@ -59,7 +82,6 @@ export const _config = styled('div')`
 
 export const _Language = styled('select')`
     border: none;
-
     option {
         background-color: #000;
     }
@@ -83,5 +105,6 @@ export const _FontPlus = styled('div')`
 
 export const _Color = styled('div')`
     display: flex;
+    align-items: center;
     cursor: pointer;
 `

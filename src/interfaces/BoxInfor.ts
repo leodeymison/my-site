@@ -1,4 +1,5 @@
 import { ProjectList } from "./Projects"
+import { Contact } from './Contact'
 
 export type BoxInforType = {
     title: string,
@@ -8,5 +9,5 @@ export type BoxInforType = {
         level: Array<boolean>
     }>,
     projects?: Array<ProjectList>,
-    contact?: boolean
+    contact?: Contact
 }

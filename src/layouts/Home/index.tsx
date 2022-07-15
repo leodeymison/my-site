@@ -14,8 +14,8 @@ const Home:React.FC<HomeType> = ({ pags }) => {
     return (
         <>
             <BoxInfor 
-                title={pags.about.title}
-                body={pags.about.body}
+                title={pags.who.title}
+                body={pags.who.body}
             />
             <BoxInfor 
                 title={pags.tec.title}
@@ -27,7 +27,7 @@ const Home:React.FC<HomeType> = ({ pags }) => {
             />
             <BoxInfor 
                 title={pags.contact.title}
-                contact={true}
+                contact={pags.contact}
             />
         </>
     )

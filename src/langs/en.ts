@@ -1,5 +1,6 @@
 import { LangsType } from "./types";
-import { js } from './icons.ds';
+import { css, graphql, html, js, node, react, styled, ts, vue } from './icons.ds';
+import Tecs from './tecs';
 
 const en:LangsType = {
     title: "en",
@@ -25,60 +26,86 @@ const en:LangsType = {
         ]
     },
     pags: {
+        who: {
+            title: "Who am I?",
+            body: `
+            I am a FullStack programmer passionate about creating life-changing 
+            tools and a knowledge addict. The mind that opens itself to a new 
+            idea will never return to its original size - Albert Einstein:
+            `
+        },
         about: {
             title: "About me",
             body: "My name is Leodeymison"
         },
         tec: {
             title: "Technologies",
-            tecs: [
-                {
-                    name: "JavaScript",
-                    level: [true, true, true, true, true, true, true, true, true, false]
-                },
-                {
-                    name: "TypeScript",
-                    level: [true, true, true, true, true, true, true, false, false, false]
-                },
-                {
-                    name: "React",
-                    level: [true, true, true, true, true, true, true, false, false, false]
-                }
-            ]
+            tecs: Tecs
         },
         projects: {
             title: "Projects",
             list: [
                 {
                     id: 1,
-                    title: "project 01",
-                    icons: [js, ""],
+                    title: "Project Manager",
+                    icons: [react, js, html, css],
                     links: [
                         {
                             name: "Code",
-                            url: "/",
+                            url: "https://github.com/leodeymison/costs",
                             target: true
                         },
-                        {
-                            name: "More",
-                            url: "/",
-                            target: true
-                        }
                     ]
                 },
                 {
                     id: 2,
-                    title: "project 02",
-                    icons: [js, ""],
+                    title: "Dialog App",
+                    icons: [graphql, ts, styled, css, react],
                     links: [
                         {
                             name: "Code",
-                            url: "/",
+                            url: "https://github.com/leodeymison/dialogApp",
+                            target: true
+                        },
+                    ]
+                },
+                {
+                    id: 3,
+                    title: "Pokedex",
+                    icons: [vue, js],
+                    links: [
+                        {
+                            name: "Code",
+                            url: "https://github.com/leodeymison/pokedex",
+                            target: true
+                        },
+                    ]
+                },
+                {
+                    id: 4,
+                    title: "Sending files",
+                    icons: [node, js],
+                    links: [
+                        {
+                            name: "Code",
+                            url: "https://github.com/leodeymison/upload-de-arquivos-backend",
+                            target: true
+                        },
+                    ]
+                },
+                {
+                    id: 5,
+                    title: "E-commerce simulator",
+                    icons: [react, ts, styled, html, css],
+                    links: [
+                        {
+                            name: "Code",
+                            url: "https://github.com/leodeymison/codeby",
                             target: true
                         },
                         {
-                            name: "More",
-                            url: "/",
+                            name: "Page",
+                            url: "https://codeby-demo.netlify.app/",
                             target: true
                         }
                     ]
@@ -86,9 +113,14 @@ const en:LangsType = {
             ]
         },
         contact: {
-            title: "Contacts"
+            title: "Contacts",
+            name: "Name",
+            subject: 'Subject',
+            message: "Mmessage",
+            button: "Send",
         },
-        notFound: "Page not found"
+        notFound: "Page not found",
+        rights: "All rights reserved"
     }
 }
 

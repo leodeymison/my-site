@@ -10,4 +10,6 @@ export type NavbarType = {
     setLang(lang:string): void,
     toggleTheme():void,
     theme: string,
+    menu: boolean,
+    OpenClosedMenu():void
 }

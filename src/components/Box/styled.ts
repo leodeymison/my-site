@@ -11,6 +11,7 @@ export const _Boxed = styled('div')`
 
 export const _Level = styled('li')`
     display: flex;
+    justify-content: space-between;
     border: solid 1px ${props => props.theme.colors.border};
     align-items: center;
     padding: 0.3em;
@@ -40,6 +41,9 @@ export const _LevelElement = styled('span')<LevelElementType>`
         color: blueviolet
     `};
     display: block;
+    @media (max-width: 600px){
+        display: none;
+    }
 `
 
 
@@ -58,11 +62,20 @@ export const _Card = styled('div')`
     border: solid 1px ${props => props.theme.colors.terc};
     padding: .8em 1em;
     margin: .3em 0;
+    h3 {
+        width: 100%;
+    }
+    @media (max-width: 450px){
+        display: block;
+    }
 `
 
 export const _Contact = styled('div')`
     display: flex;
     margin-top: 15px;
+    @media (max-width: 700px){
+        display: block;
+    }
 `
 
 export const _Sociais = styled('div')`
@@ -75,12 +88,12 @@ export const _Sociais = styled('div')`
         align-items: center;
         padding: .5em;
         margin-bottom: 10px;
-        border: solid 1px blueviolet;
+        border: solid 1px ${props => props.theme.colors.terc};
         border-radius: 5px;
         transition: 0.3s;
         &:hover {
             transition: 0.3s;
-            background-color: blueviolet;
+            background-color: ${props => props.theme.colors.terc};
         }
         svg {
             margin-right: 5px;
@@ -93,14 +106,38 @@ export const _Form = styled('form')`
     flex-direction: column;
     width: 100%;
     margin-left: 10px;
+    @media (max-width: 700px){
+        margin-left: 0px;
+        margin-top: 2em;
+    }
 `
 
 export const _Icon = styled('div')`
     display: flex;
+    width: 100%;
     
     img {
         height: 25px;
         height: 25px;
         margin: 0 5px;
     }
+
+    @media (max-width: 600px){
+        display: none;
+    }
+`
+
+export const _BoxButton = styled('div')`
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    @media (max-width: 450px){
+        justify-content: flex-start;
+        padding-top: 15px;
+    }
+`
+
+export const _List = styled('div')`
+    display: flex;
+    align-items: center;
 `

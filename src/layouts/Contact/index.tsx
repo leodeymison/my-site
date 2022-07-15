@@ -14,7 +14,7 @@ const Contact:React.FC<ContactType> = ({ contact }) => {
         <_MinHeight>
             <BoxInfor 
                 title={contact.title}
-                contact={true}
+                contact={contact}
             />
         </_MinHeight>
     )

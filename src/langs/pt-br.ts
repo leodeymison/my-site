@@ -1,5 +1,6 @@
 import { LangsType } from "./types";
-import { js } from './icons.ds';
+import { css, graphql, html, js, node, react, styled, ts, vue } from './icons.ds';
+import Tecs from './tecs'
 
 const ptbr:LangsType = {
     title: "pt-br",
@@ -25,60 +26,88 @@ const ptbr:LangsType = {
         ]
     },
     pags: {
+        who: {
+            title: "Quem sou eu?",
+            body: `
+                Sou um programador FullStack apaixonado por criar ferramentas que mudam vidas e um 
+                viciado em conhecimento. 
+                A mente que se abre a uma nova ideia jamais 
+                voltará ao seu tamanho original - Albert Einstein:
+            `
+
+        },
         about: {
             title: "Sobre mim",
             body: "Me chamo Leodeymison, nasci em 16/04/2003, com naturalidade brasileira"
         },
         tec: {
             title: "Tecnologias",
-            tecs: [
-                {
-                    name: "JavaScript",
-                    level: [true, true, true, true, true, true, true, true, true, false]
-                },
-                {
-                    name: "TypeScript",
-                    level: [true, true, true, true, true, true, true, false, false, false]
-                },
-                {
-                    name: "React",
-                    level: [true, true, true, true, true, true, true, false, false, false]
-                }
-            ]
+            tecs: Tecs
         },
         projects: {
             title: "Projetos",
             list: [
                 {
                     id: 1,
-                    title: "Projeto 01",
-                    icons: [js, js],
+                    title: "Gerenciador de projetos",
+                    icons: [react, js, html, css],
                     links: [
                         {
                             name: "Código",
-                            url: "/",
+                            url: "https://github.com/leodeymison/costs",
                             target: true
                         },
-                        {
-                            name: "Mais",
-                            url: "/",
-                            target: true
-                        }
                     ]
                 },
                 {
                     id: 2,
-                    title: "Projeto 02",
-                    icons: [js, ""],
+                    title: "Dialog App",
+                    icons: [graphql, ts, styled, css, react],
                     links: [
                         {
                             name: "Código",
-                            url: "/",
+                            url: "https://github.com/leodeymison/dialogApp",
+                            target: true
+                        },
+                    ]
+                },
+                {
+                    id: 3,
+                    title: "Pokedex",
+                    icons: [vue, js],
+                    links: [
+                        {
+                            name: "Código",
+                            url: "https://github.com/leodeymison/pokedex",
+                            target: true
+                        },
+                    ]
+                },
+                {
+                    id: 4,
+                    title: "Envio de arquivos",
+                    icons: [node, js],
+                    links: [
+                        {
+                            name: "Código",
+                            url: "https://github.com/leodeymison/upload-de-arquivos-backend",
+                            target: true
+                        },
+                    ]
+                },
+                {
+                    id: 5,
+                    title: "Simulador de e-commerce",
+                    icons: [react, ts, styled, html, css],
+                    links: [
+                        {
+                            name: "Código",
+                            url: "https://github.com/leodeymison/codeby",
                             target: true
                         },
                         {
-                            name: "Mais",
-                            url: "/",
+                            name: "Página",
+                            url: "https://codeby-demo.netlify.app/",
                             target: true
                         }
                     ]
@@ -86,9 +115,14 @@ const ptbr:LangsType = {
             ]
         },
         contact: {
-            title: "Contatos"
+            title: "Contatos",
+            name: "Nome",
+            subject: 'Assunto',
+            message: "Mensagem",
+            button: "Enviar",
         },
-        notFound: "Página não encontrada"
+        notFound: "Página não encontrada",
+        rights: "Todos os direitos reservados"
     }
 }
 

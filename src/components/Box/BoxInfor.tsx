@@ -2,7 +2,19 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 
 // styleds
-import { _Boxed, _Level , _LevelElement, _BoxCard, _Card, _Contact, _Sociais, _Form, _Icon } from './styled';
+import { 
+    _Boxed,
+    _Level , 
+    _LevelElement, 
+    _BoxCard, 
+    _Card, 
+    _Contact, 
+    _Sociais, 
+    _Form, 
+    _Icon, 
+    _BoxButton,
+    _List
+} from './styled';
 
 // icons
 import { AiOutlineInstagram, AiFillLinkedin, AiFillGithub } from 'react-icons/ai'
@@ -35,11 +47,14 @@ const BoxInfor:React.FC<BoxInforType> = ({title, body, contact, projects, tecs})
                             tecs.map((tec, index) => (
                                 <_Level key={index}>
                                     <p>{tec.name}</p>
-                                    {
-                                        tec.level.map((level, i) => (
-                                            <_LevelElement key={i} bcolor={level}></_LevelElement>
-                                        ))
-                                    }
+                                    <_List>
+                                        {
+                                            tec.level.map((level, i) => (
+                                                <_LevelElement key={i} bcolor={level}></_LevelElement>
+                                            ))
+                                        }
+                                    <p>{String((tec.level.filter(level => level == true)).length).padStart(2, '0')}/{tec.level.length}</p>
+                                    </_List>
                                 </_Level>
                             ))
                         }
@@ -60,16 +75,17 @@ const BoxInfor:React.FC<BoxInforType> = ({title, body, contact, projects, tecs})
                                             ))
                                         }
                                     </_Icon>
-                                    <div>
+                                    <_BoxButton>
                                         {
-                                            project.links.map(link => (
+                                            project.links.map((link, index) => (
                                                 <ButtonLink 
+                                                    key={index}
                                                     blanck={link.target} 
                                                     text={link.name}
                                                     url={link.url} />
                                             ))
                                         }
-                                    </div>
+                                    </_BoxButton>
                                 </_Card>
                             ))
                         }
@@ -94,10 +110,10 @@ const BoxInfor:React.FC<BoxInforType> = ({title, body, contact, projects, tecs})
                             </a>
                         </_Sociais>
                         <_Form action="">
-                            <Input type="text" placeholder='Nome' />
-                            <Input type="text" placeholder='Assunto' />
-                            <Textarea placeholder='Mensagem'></Textarea>
-                            <Input type="submit" value="Enviar" />
+                            <Input type="text" placeholder={contact.name} />
+                            <Input type="text" placeholder={contact.subject} />
+                            <Textarea placeholder={contact.message}></Textarea>
+                            <Input type="submit" value={contact.button} />
                         </_Form>
                     </_Contact>
                 )

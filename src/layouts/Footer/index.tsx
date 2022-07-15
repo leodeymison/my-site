@@ -1,10 +1,15 @@
+import React from 'react';
+
 // styled
 import { _Footer } from './styled';
 
-const Footer = () => {
+// Interfaces
+import { FooterType } from '../../interfaces/Footer';
+
+const Footer:React.FC<FooterType> = ({ footer }) => {
     return (
         <_Footer>
-            Todos os direitos reservados - {new Date().getFullYear()}
+            {footer} - {new Date().getFullYear()}
         </_Footer>
     )
 }

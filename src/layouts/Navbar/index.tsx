@@ -1,7 +1,17 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
+
 // Styled-components
-import { _Header, _BoxPeople, _Menu, _config, _FontPlus, _Language, _Color } from './styled';
+import { 
+    _Header, 
+    _BoxPeople, 
+    _Menu, 
+    _config, 
+    _FontPlus, 
+    _Language, 
+    _Color 
+} from './styled';
+import { _MenuIcon } from '../../styled';
 
 // Images
 import author from '../../assets/author.jpg'
@@ -12,10 +22,11 @@ import { NavbarType } from '../../interfaces/Navbar';
 // icons
 import { MdDarkMode } from 'react-icons/md';
 import { BsFillSunFill } from 'react-icons/bs'
+import { AiOutlineMenuFold } from 'react-icons/ai'
 
-const Navbar:React.FC<NavbarType> = ({langParams, setLang, theme, toggleTheme, lang}) => {
+const Navbar:React.FC<NavbarType> = ({langParams, setLang, theme, toggleTheme, lang, menu, OpenClosedMenu}) => {
     return (
-        <_Header>
+        <_Header menu={menu}>
             <_config>
                 <_Language onChange={e => setLang(e.target.value)} value={lang}>
                     <option value="pt-br">
@@ -31,7 +42,11 @@ const Navbar:React.FC<NavbarType> = ({langParams, setLang, theme, toggleTheme, l
                             theme == 'dark' ? <MdDarkMode /> : <BsFillSunFill />
                         }
                     </span>
+                    
                 </_Color>
+                <_MenuIcon onClick={OpenClosedMenu}>
+                    <AiOutlineMenuFold />
+                </_MenuIcon>
             </_config>
             <_BoxPeople>
                 <img 

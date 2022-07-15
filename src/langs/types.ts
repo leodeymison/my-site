@@ -8,6 +8,10 @@ export type LangsType = {
         }>
     },
     pags: {
+        who: {
+            title: string,
+            body: string,
+        },
         about: {
             title: string,
             body: string,
@@ -34,7 +38,12 @@ export type LangsType = {
         },
         contact: {
             title: string,
+            name: string,
+            subject: string,
+            message: string,
+            button: string,
         },
-        notFound: string
+        notFound: string,
+        rights: string
     }
 }

@@ -7,6 +7,7 @@ export type HomeType = {
         about: About,
         tec: Tec,
         projects: Project,
-        contact: Contact
+        contact: Contact,
+        who: About
     }
 }

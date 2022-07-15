@@ -9,7 +9,7 @@ export const _Global = createGlobalStyle`
     };
     select {
         color: ${props => props.theme.colors.text};
-        background-color: #ddd0;
+        background-color: ${props => props.theme.colors.primary};
     }
     input:focus, select:focus, button:focus, textarea:focus {
         outline: none;
@@ -62,10 +62,27 @@ export const _Section = styled('section')`
     }
     &::-webkit-scrollbar-thumb {
         width: 8px;
-        background-color: blueviolet;
+        background-color: ${props => props.theme.colors.terc};
+    }
+    @media (max-width: 700px){
+        padding: 0 1em;
+    }
+    @media (max-width: 500px){
+        padding: 0 .5em;
     }
 `
 
 export const _MinHeight = styled('div')`
     min-height: 87vh;
+`
+
+export const _MenuIcon = styled('div')`
+    justify-content: flex-end;
+    font-size: 24px;
+    display: none;
+    margin: 0 10px;
+    cursor: pointer;
+    @media (max-width: 1200px){
+        display: flex;
+    }
 `
