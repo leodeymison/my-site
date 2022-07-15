@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import React from 'react';
 
 // styleds
@@ -53,7 +52,7 @@ const BoxInfor:React.FC<BoxInforType> = ({title, body, contact, projects, tecs})
                                                 <_LevelElement key={i} bcolor={level}></_LevelElement>
                                             ))
                                         }
-                                    <p>{String((tec.level.filter(level => level == true)).length).padStart(2, '0')}/{tec.level.length}</p>
+                                    <p>{String((tec.level.filter(level => level === true)).length).padStart(2, '0')}/{tec.level.length}</p>
                                     </_List>
                                 </_Level>
                             ))

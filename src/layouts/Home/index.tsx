@@ -3,9 +3,6 @@ import React from 'react';
 // Componets
 import BoxInfor from '../../components/Box/BoxInfor';
 
-// Components
-import { _Container } from '../../styled';
-
 // interfaces
 import { HomeType } from '../../interfaces/Home';
 
