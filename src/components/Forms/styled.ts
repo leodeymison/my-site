@@ -13,7 +13,7 @@ export const InputStyled = styled('input')<InputStyledType>`
     background-color: #0000;
     padding: .7em;
     ${
-        props => props.hoverOption == true && (
+        props => props.hoverOption === true && (
             `&:hover{
                 background-color: ${props.theme.colors.terc};
             }`
