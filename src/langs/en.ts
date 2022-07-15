@@ -30,7 +30,7 @@ const en:LangsType = {
             title: "Who am I?",
             body: `
             I am a FullStack programmer passionate about creating life-changing 
-            tools and a knowledge addict. The mind that opens itself to a new idea will never return to its original size - Albert Einstein:
+            tools and a knowledge addict. The mind that opens itself to a new idea will never return to its original size - Albert Einstein
             `
         },
         about: {
