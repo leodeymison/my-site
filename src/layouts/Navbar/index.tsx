@@ -7,7 +7,6 @@ import {
     _BoxPeople, 
     _Menu, 
     _config, 
-    _FontPlus, 
     _Language, 
     _Color 
 } from './styled';
@@ -39,7 +38,7 @@ const Navbar:React.FC<NavbarType> = ({langParams, setLang, theme, toggleTheme, l
                 <_Color>
                     <span onClick={toggleTheme}>
                         {
-                            theme == 'dark' ? <MdDarkMode /> : <BsFillSunFill />
+                            theme === 'dark' ? <MdDarkMode /> : <BsFillSunFill />
                         }
                     </span>
                     
