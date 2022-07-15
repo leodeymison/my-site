@@ -5,8 +5,8 @@ import React from 'react';
 import img404 from '../../assets/404.gif';
 
 // Styleds
-import { _NotFound } from './styled';
-import { _MinHeight } from '../../styled';
+import { NotFoundStyled } from './styled';
+import { MinHeightStyled } from '../../styled';
 
 
 // interfaces
@@ -14,12 +14,12 @@ import { NotFoundType } from '../../interfaces/NotFound';
 
 const notFound:React.FC<NotFoundType> = ({title}) => {
     return (
-        <_MinHeight>
-            <_NotFound>
+        <MinHeightStyled>
+            <NotFoundStyled>
                 <img src={img404} alt="" />
                 <p>~ {title} ~</p>
-            </_NotFound>
-        </_MinHeight>
+            </NotFoundStyled>
+        </MinHeightStyled>
     )
 }
 

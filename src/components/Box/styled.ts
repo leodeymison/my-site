@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const _Boxed = styled('div')`
+export const BoxedStyled = styled('div')`
     padding: 1em;
     box-shadow: 5px 5px 15px ${props => props.theme.colors.boxshadow};
     border: solid 1px ${props => props.theme.colors.border};
@@ -9,7 +9,7 @@ export const _Boxed = styled('div')`
 `
 
 
-export const _Level = styled('li')`
+export const LevelStyled = styled('li')`
     display: flex;
     justify-content: space-between;
     border: solid 1px ${props => props.theme.colors.border};
@@ -26,7 +26,7 @@ type LevelElementType = {
     bcolor: boolean
 }
 
-export const _LevelElement = styled('span')<LevelElementType>`
+export const LevelElementStyled = styled('span')<LevelElementType>`
     width: 18px;
     height: 18px;
     margin: 0 3px;
@@ -47,14 +47,14 @@ export const _LevelElement = styled('span')<LevelElementType>`
 `
 
 
-export const _BoxCard = styled('div')`
+export const BoxCardStyled = styled('div')`
     display: flex;
     flex-direction: column;    
     width: 100%;
     margin-top: 15px;
 `
 
-export const _Card = styled('div')`
+export const CardStyled = styled('div')`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -70,7 +70,7 @@ export const _Card = styled('div')`
     }
 `
 
-export const _Contact = styled('div')`
+export const ContactStyled = styled('div')`
     display: flex;
     margin-top: 15px;
     @media (max-width: 700px){
@@ -78,7 +78,7 @@ export const _Contact = styled('div')`
     }
 `
 
-export const _Sociais = styled('div')`
+export const SociaisStyled = styled('div')`
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -101,7 +101,7 @@ export const _Sociais = styled('div')`
     }
 `
 
-export const _Form = styled('form')`
+export const FormStyled = styled('form')`
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -112,7 +112,7 @@ export const _Form = styled('form')`
     }
 `
 
-export const _Icon = styled('div')`
+export const IconStyled = styled('div')`
     display: flex;
     width: 100%;
     
@@ -127,7 +127,7 @@ export const _Icon = styled('div')`
     }
 `
 
-export const _BoxButton = styled('div')`
+export const BoxButtonStyled = styled('div')`
     display: flex;
     justify-content: flex-end;
     width: 100%;
@@ -137,7 +137,7 @@ export const _BoxButton = styled('div')`
     }
 `
 
-export const _List = styled('div')`
+export const ListStyled = styled('div')`
     display: flex;
     align-items: center;
 `

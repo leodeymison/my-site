@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const _Input = styled('input')`
+export const InputStyled = styled('input')`
     padding: .5em;
     margin-bottom: 10px;
     border: solid 1px ${props => props.theme.colors.terc};
@@ -13,7 +13,7 @@ export const _Input = styled('input')`
     }
 `
 
-export const _Button = styled('button')`
+export const ButtonStyled = styled('button')`
     margin-bottom: 10px;
     border: solid 1px ${props => props.theme.colors.terc};
     border-radius: 5px;
@@ -31,7 +31,7 @@ export const _Button = styled('button')`
     }
 `
 
-export const _Textarea = styled('textarea')`
+export const TextareaStyled = styled('textarea')`
     padding: .5em;
     margin-bottom: 10px;
     border: solid 1px ${props => props.theme.colors.terc};

@@ -5,7 +5,7 @@ type HeaderType = {
     menu: boolean,
 }
 
-export const _Header = styled('header')<HeaderType>`
+export const HeaderStyled = styled('header')<HeaderType>`
     width: 30%;
     height: 100vh;
     overflow-x: hidden;
@@ -31,7 +31,7 @@ export const _Header = styled('header')<HeaderType>`
     }
 `
 
-export const _BoxPeople = styled('div')`
+export const BoxPeopleStyled = styled('div')`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,7 +49,7 @@ export const _BoxPeople = styled('div')`
 `
 
 
-export const _Menu = styled('nav')`
+export const MenuStyled = styled('nav')`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,21 +73,21 @@ export const _Menu = styled('nav')`
     }
 `
 
-export const _config = styled('div')`
+export const ConfigStyled = styled('div')`
     display: flex;
     padding: 1em;
     justify-content: space-between;
 `
 
 
-export const _Language = styled('select')`
+export const LanguageStyled = styled('select')`
     border: none;
     option {
         background-color: #000;
     }
 `
 
-export const _FontPlus = styled('div')`
+export const FontPlusStyled = styled('div')`
     display: flex;
     align-items: center;
     span {
@@ -103,7 +103,7 @@ export const _FontPlus = styled('div')`
     }
 `
 
-export const _Color = styled('div')`
+export const ColorStyled = styled('div')`
     display: flex;
     align-items: center;
     cursor: pointer;

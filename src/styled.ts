@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
-export const _Global = createGlobalStyle`
+export const GlobalStyled = createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
@@ -40,14 +40,14 @@ type ContainerProps = {
     justifyC?: 'center' | 'flex-end' | 'flex-start' | 'space-between'
 }
 
-export const _Container = styled.div<ContainerProps>`
+export const ContainerStyled = styled.div<ContainerProps>`
     display: ${props => props.dplay || "block"};
     padding: ${props => props.pd+'em' || '0em' };
     justify-content: ${props => props.justifyC || 'flex-start'};
 `;
 
 
-export const _Section = styled('section')`
+export const SectionStyled = styled('section')`
     display: flex;
     width: 100%;
     height: 100vh;
@@ -72,11 +72,11 @@ export const _Section = styled('section')`
     }
 `
 
-export const _MinHeight = styled('div')`
-    min-height: 87vh;
+export const MinHeightStyled = styled('div')`
+    min-height: 87%;
 `
 
-export const _MenuIcon = styled('div')`
+export const MenuIconStyled = styled('div')`
     justify-content: flex-end;
     font-size: 24px;
     display: none;

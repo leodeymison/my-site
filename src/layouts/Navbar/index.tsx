@@ -3,14 +3,14 @@ import React from 'react';
 
 // Styled-components
 import { 
-    _Header, 
-    _BoxPeople, 
-    _Menu, 
-    _config, 
-    _Language, 
-    _Color 
+    HeaderStyled, 
+    BoxPeopleStyled, 
+    MenuStyled, 
+    ConfigStyled, 
+    LanguageStyled, 
+    ColorStyled 
 } from './styled';
-import { _MenuIcon } from '../../styled';
+import { MenuIconStyled } from '../../styled';
 
 // Images
 import author from '../../assets/author.jpg'
@@ -25,48 +25,48 @@ import { AiOutlineMenuFold } from 'react-icons/ai'
 
 const Navbar:React.FC<NavbarType> = ({langParams, setLang, theme, toggleTheme, lang, menu, OpenClosedMenu}) => {
     return (
-        <_Header menu={menu}>
-            <_config>
-                <_Language onChange={e => setLang(e.target.value)} value={lang}>
+        <HeaderStyled menu={menu}>
+            <ConfigStyled>
+                <LanguageStyled onChange={e => setLang(e.target.value)} value={lang}>
                     <option value="pt-br">
                         Pt-Br
                     </option>
                     <option value="en">
                         En
                     </option>
-                </_Language>
-                <_Color>
+                </LanguageStyled>
+                <ColorStyled>
                     <span onClick={toggleTheme}>
                         {
                             theme === 'dark' ? <MdDarkMode /> : <BsFillSunFill />
                         }
                     </span>
                     
-                </_Color>
-                <_MenuIcon onClick={OpenClosedMenu}>
+                </ColorStyled>
+                <MenuIconStyled onClick={OpenClosedMenu}>
                     <AiOutlineMenuFold />
-                </_MenuIcon>
-            </_config>
-            <_BoxPeople>
+                </MenuIconStyled>
+            </ConfigStyled>
+            <BoxPeopleStyled>
                 <img 
                     src={author} 
                     alt="Foto do leodeymison alcantara" />
                 <br />
                 <h1>Leodeymison A.</h1>
                 <p>{langParams.job}</p>
-            </_BoxPeople>
-            <_Menu>
+            </BoxPeopleStyled>
+            <MenuStyled>
                 <ul>
                     {
                         langParams.menu.map((l, index) => (
                             <li key={index}>
-                                <Link to={ l.url }>{ l.name }</Link>
+                                <Link onClick={OpenClosedMenu} to={ l.url }>{ l.name }</Link>
                             </li>
                         ))
                     }
                 </ul>
-            </_Menu>
-        </_Header>
+            </MenuStyled>
+        </HeaderStyled>
     )
 }
 
