@@ -4,19 +4,19 @@ import React from 'react';
 import BoxInfor from '../../components/Box/BoxInfor';
 
 // Components
-import { _MinHeight } from '../../styled';
+import { MinHeightStyled } from '../../styled';
 
 // interfaces
 import { ContactType } from '../../interfaces/Contact';
 
 const Contact:React.FC<ContactType> = ({ contact }) => {
     return (
-        <_MinHeight>
+        <MinHeightStyled>
             <BoxInfor 
                 title={contact.title}
                 contact={contact}
             />
-        </_MinHeight>
+        </MinHeightStyled>
     )
 }
 

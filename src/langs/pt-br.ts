@@ -2,7 +2,7 @@ import { LangsType } from "./types";
 import { css, graphql, html, js, node, react, styled, ts, vue } from './icons.ds';
 import Tecs from './tecs'
 
-const ptbr:LangsType = {
+var ptbr:LangsType = {
     title: "pt-br",
     navbar: {
         job: "Desenvolvedor FullStack",

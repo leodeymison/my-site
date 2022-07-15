@@ -15,9 +15,9 @@ import Contact from './layouts/Contact';
 import NotFound from './layouts/NotFound'
 
 // styled-components
-import { _Container, _Section, _MenuIcon } from './styled';
+import { ContainerStyled, SectionStyled, MenuIconStyled } from './styled';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
-import { _Global } from './styled';
+import { GlobalStyled } from './styled';
 
 // Themes
 import Dark from './themes/dark';
@@ -55,8 +55,8 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <_Global />
-      <_Container dplay='flex'>
+      <GlobalStyled />
+      <ContainerStyled dplay='flex'>
         <Navbar 
           langParams={lang.navbar}
           lang={lang.title}
@@ -67,11 +67,11 @@ const App = () => {
           OpenClosedMenu={OpenClosedMenu}
         />
 
-        <_Section>
+        <SectionStyled>
           <br />
-          <_MenuIcon onClick={OpenClosedMenu}>
+          <MenuIconStyled onClick={OpenClosedMenu}>
             <AiOutlineMenuUnfold />
-          </_MenuIcon>
+          </MenuIconStyled>
           <br />
           <Routes>
             <Route path="*" element={<NotFound title={lang.pags.notFound} />} />
@@ -83,8 +83,8 @@ const App = () => {
             <Route path='/contact' element={<Contact contact={lang.pags.contact} />} />
           </Routes>
           <Footer footer={lang.pags.rights} />
-        </_Section>
-      </_Container>
+        </SectionStyled>
+      </ContainerStyled>
     </ThemeProvider>
   );
 }

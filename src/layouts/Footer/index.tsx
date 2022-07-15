@@ -1,16 +1,16 @@
 import React from 'react';
 
 // styled
-import { _Footer } from './styled';
+import { FooterStyled } from './styled';
 
 // Interfaces
 import { FooterType } from '../../interfaces/Footer';
 
 const Footer:React.FC<FooterType> = ({ footer }) => {
     return (
-        <_Footer>
+        <FooterStyled>
             {footer} - {new Date().getFullYear()}
-        </_Footer>
+        </FooterStyled>
     )
 }
 

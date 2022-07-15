@@ -1,4 +1,4 @@
-export default [
+const Tecs = [
     {
         name: "HTML5",
         level: [true, true, true, true, true, true, true, true, true, true]
@@ -36,7 +36,7 @@ export default [
         level: [true, true, true, true, true, true, true, false, false, false]
     },
     {
-        name: "DDD",
+        name: "TDD",
         level: [true, true, true, true, true, true, true, false, false, false]
     },
     {
@@ -64,3 +64,4 @@ export default [
         level: [true, true, true, true, true, false, false, false, false, false]
     }
 ]
+export default Tecs

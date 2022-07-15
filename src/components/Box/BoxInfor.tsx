@@ -2,17 +2,17 @@ import React from 'react';
 
 // styleds
 import { 
-    _Boxed,
-    _Level , 
-    _LevelElement, 
-    _BoxCard, 
-    _Card, 
-    _Contact, 
-    _Sociais, 
-    _Form, 
-    _Icon, 
-    _BoxButton,
-    _List
+    BoxedStyled,
+    LevelStyled, 
+    LevelElementStyled, 
+    BoxCardStyled, 
+    CardStyled, 
+    ContactStyled, 
+    SociaisStyled, 
+    FormStyled, 
+    IconStyled, 
+    BoxButtonStyled,
+    ListStyled
 } from './styled';
 
 // icons
@@ -28,7 +28,7 @@ import { BoxInforType } from '../../interfaces/BoxInfor';
 
 const BoxInfor:React.FC<BoxInforType> = ({title, body, contact, projects, tecs}) => {
     return (
-        <_Boxed>
+        <BoxedStyled>
             <h2>{title}</h2>
             { 
                 body && (
@@ -44,17 +44,17 @@ const BoxInfor:React.FC<BoxInforType> = ({title, body, contact, projects, tecs})
                         <br />
                         {
                             tecs.map((tec, index) => (
-                                <_Level key={index}>
+                                <LevelStyled key={index}>
                                     <p>{tec.name}</p>
-                                    <_List>
+                                    <ListStyled>
                                         {
                                             tec.level.map((level, i) => (
-                                                <_LevelElement key={i} bcolor={level}></_LevelElement>
+                                                <LevelElementStyled key={i} bcolor={level}></LevelElementStyled>
                                             ))
                                         }
                                     <p>{String((tec.level.filter(level => level === true)).length).padStart(2, '0')}/{tec.level.length}</p>
-                                    </_List>
-                                </_Level>
+                                    </ListStyled>
+                                </LevelStyled>
                             ))
                         }
                     </ul>
@@ -62,19 +62,19 @@ const BoxInfor:React.FC<BoxInforType> = ({title, body, contact, projects, tecs})
             }
             {
                 projects && (
-                    <_BoxCard>
+                    <BoxCardStyled>
                         {
                             projects.map((project, index) => (
-                                <_Card key={index}>
+                                <CardStyled key={index}>
                                     <h3>{project.title}</h3>
-                                    <_Icon>
+                                    <IconStyled>
                                         {
                                             project.icons.map((icon, i) => (
                                                 icon.length > 0 && <img key={i} src={icon} alt={project.title} />
                                             ))
                                         }
-                                    </_Icon>
-                                    <_BoxButton>
+                                    </IconStyled>
+                                    <BoxButtonStyled>
                                         {
                                             project.links.map((link, index) => (
                                                 <ButtonLink 
@@ -84,40 +84,40 @@ const BoxInfor:React.FC<BoxInforType> = ({title, body, contact, projects, tecs})
                                                     url={link.url} />
                                             ))
                                         }
-                                    </_BoxButton>
-                                </_Card>
+                                    </BoxButtonStyled>
+                                </CardStyled>
                             ))
                         }
-                    </_BoxCard>
+                    </BoxCardStyled>
                 )
             }
             {
                 contact && (
-                    <_Contact>
-                        <_Sociais>
-                            <a href="">
+                    <ContactStyled>
+                        <SociaisStyled>
+                            <a target="_blank" rel="noreferrer" href="https://www.instagram.com/leodeymison_alcantara/">
                                 <AiOutlineInstagram />
                                 Instagram
                             </a>
-                            <a href="">
+                            <a target="_blank" rel="noreferrer" href="https://github.com/leodeymison">
                                 <AiFillGithub />
                                 GitHub
                             </a>
-                            <a href="">
+                            <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/leodeymison/">
                                 <AiFillLinkedin />
                                 LinkedIn
                             </a>
-                        </_Sociais>
-                        <_Form action="">
+                        </SociaisStyled>
+                        <FormStyled action="">
                             <Input type="text" placeholder={contact.name} />
                             <Input type="text" placeholder={contact.subject} />
                             <Textarea placeholder={contact.message}></Textarea>
                             <Input type="submit" value={contact.button} />
-                        </_Form>
-                    </_Contact>
+                        </FormStyled>
+                    </ContactStyled>
                 )
             }
-        </_Boxed>
+        </BoxedStyled>
     )
 }
 
