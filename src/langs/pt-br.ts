@@ -16,6 +16,10 @@ var ptbr:LangsType = {
                 url: "/about"
             },
             {
+                name: "Blog",
+                url: "/blog"
+            },
+            {
                 name: "Projetos",
                 url: "/projects"
             },

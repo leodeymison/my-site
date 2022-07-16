@@ -13,7 +13,7 @@ const Input:React.FC<InputType> = ({type, placeholder, value, name, hover}) => {
                 hoverOption={hover || false} 
                 type={type} 
                 placeholder={placeholder} 
-                value={value} 
+                value={value}
                 name={name} 
             />
         </>
