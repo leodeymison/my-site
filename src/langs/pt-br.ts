@@ -38,7 +38,14 @@ var ptbr:LangsType = {
         },
         about: {
             title: "Sobre mim",
-            body: "Me chamo Leodeymison, nasci em 16/04/2003, com naturalidade brasileira"
+            body: `Me chamo Leodeymison, nasci em 16/04/2003, meu primeiro contato com tecnologia foi aos 3 anos de idade, jogando jogos no antigos celulares.
+
+            Comecei a me apaixonar por programação entrei os 14 e 15 anos, e logo comecei a estudar, dois anos depois com 17 anos trabalhei na minha
+            primeira vaga de desenvolvedor frontend (Estágio), fiquei um mês de estágio e fui efetivado, nessa empresa aprendi muitas coisas e adquiri
+            bastante experiência, fiquei lá por 1 ano, e comecei trabalhos de frelancer. nesse meio tempo passei em algumas empresas presencial e remota
+            por pequenos períodos de tempo. Tenho em mente que preciso ser melhor 1% a cada dia, com isso minha rotinha juntando trabalho e estudo é em
+            torno de 16 horas por dia, pela manhã tento sempre me exercitar e fazer meus devocionais, não me considero uma pessoa que sai muito, mas tenho
+            bastante amigos por conta dos fortes laços de amizades que adquiri na igreja. Além da programação, a inteligência artificial é algo que me fascina e que eu sempre estou procurando aprender um pouquinho sobre.`
         },
         tec: {
             title: "Tecnologias",

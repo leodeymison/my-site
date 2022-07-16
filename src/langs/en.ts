@@ -35,7 +35,18 @@ const en:LangsType = {
         },
         about: {
             title: "About me",
-            body: "My name is Leodeymison"
+            body: `My name is Leodeymison, I was born on 16/04/2003, my first contact with technology was at the age of 3, playing games on old phones.
+
+            I began to fall in love with programming between 14 and 15 years, and soon began to study, two years later at the age of 17 I worked in my
+            first wave of frontend developer (Internship), I stayed a month of internship and was effective, in this company I learned many things and acquired
+            a lot of experience, Stayed there for 1 year, and started work to frelancer. 
+            
+            in the meantime I spent in some face-to-face and remote companies for short periods of time.  
+
+            I have in mind that I need to be better 1% every day, with this my little rotinha joining work and study is in
+            around 16 hours a day, in the morning I always try to exercise and do my devotionals, I do not consider myself a person who goes out much, but I have
+            friends because of the strong bonds of friendships I acquired in the church. In addition to programming, artificial intelligence is something that fascinates me and that I'm always looking to learn a little bit about.
+            `
         },
         tec: {
             title: "Technologies",
