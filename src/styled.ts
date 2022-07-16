@@ -25,7 +25,8 @@ export const GlobalStyled = createGlobalStyle`
         list-style-type: none;
     }
     p, a {
-        font-size: 16px;
+        font-size: 18px;
+        line-height: 28px;
     }
     h1 {
         font-size: 32px;
