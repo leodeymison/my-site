@@ -5,7 +5,7 @@ import { InputStyled } from './styled';
 // interfaces
 import { InputType } from '../../interfaces/Input';
 
-const Input:React.FC<InputType> = ({type, placeholder, value, name, hover}) => {
+const Input:React.FC<InputType> = ({type, placeholder, value, name, hover, active}) => {
 
     return (
         <>
@@ -15,6 +15,7 @@ const Input:React.FC<InputType> = ({type, placeholder, value, name, hover}) => {
                 placeholder={placeholder} 
                 value={value}
                 name={name} 
+                active={active}
             />
         </>
         

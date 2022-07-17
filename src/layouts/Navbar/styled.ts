@@ -108,3 +108,33 @@ export const ColorStyled = styled('div')`
     align-items: center;
     cursor: pointer;
 `
+
+export const LoginStyled = styled('div')`
+    display: flex;
+    position: relative;
+    img {
+        height: 50px;
+        cursor: pointer;
+        border-radius: 100%;
+        border: solid 5px ${props => props.theme.colors.border};
+    }
+    ul {
+        position: absolute;
+        top: 110%;
+        right: 0;
+        background-color: ${props => props.theme.colors.border};
+        padding: 2px;
+        li {
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            svg {
+                margin-right: 10px;
+            }
+            &:hover {
+                background-color: ${props => props.theme.colors.secund};
+            }
+        }
+    }
+`

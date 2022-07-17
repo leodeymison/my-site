@@ -1,35 +1,60 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // styleds
-import { TitleStyled, CategorysStyled, ProductsStyled, CategorysLiStyled, IconMenuStyled } from "./styled";
+import { 
+    TitleStyled, 
+    CategorysStyled, 
+    ProductsStyled, 
+    CategorysLiStyled, 
+    IconMenuStyled, 
+    FlexBoxStyled,
+    SpanStyled
+} from "./styled";
 
 // icons
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineEye, AiOutlineHeart } from "react-icons/ai";
 import { MdOutlineMenuOpen } from 'react-icons/md'
+import { BsChatDots } from 'react-icons/bs'
 
 // Components
 import Input from "../../components/Forms/Input";
+import NavbarLogin from "../Navbar/Login";
+
+// Graphql
+import { gql } from "@apollo/client";
+import Client from '../../config/client-graphql';
+import { ArticleGetAll } from './schemas/Article';
+import { CategoryGetAll } from './schemas/Category';
 
 const Blog = () => {
-    const [menu, setMenu] = useState(false)
-    const [categorys, setCategorys] = useState(
-        [
-            {
-                name: "Inteligencia artificial"
-            },
-            {
-                name: "Python"
-            }
-        ]
-    )
+    const [menu, setMenu] = useState(false);
+    const [categorys, setCategorys] = useState<Array<any>>([])
+    const [articles, setArticles] = useState<Array<any>>([])
 
     function openClosedCategory(){
         setMenu(!menu)
     }
 
+    useEffect(() => {
+        Client.query({
+            query: gql`
+                query {
+                    ${ArticleGetAll}
+                    ${CategoryGetAll}
+                }
+            `
+        }).then(res => {
+            setCategorys(res.data.CategoryGetAll)
+            setArticles(res.data.ArticleGetAll)
+        })
+    }, [])
+
     return (
         <>
+            <FlexBoxStyled justifyContent="flex-end">
+                <NavbarLogin />
+            </FlexBoxStyled>
             <TitleStyled>
                 <h1>Blog sobre tecnologia</h1>
             </TitleStyled>
@@ -50,7 +75,7 @@ const Blog = () => {
                             <CategorysLiStyled active={true}>Todas</CategorysLiStyled>
                             {
                                 categorys.map(category => (
-                                    <CategorysLiStyled>{category.name}</CategorysLiStyled>
+                                    <CategorysLiStyled key={category.id}>{category.name}</CategorysLiStyled>
                                 ))
                             }
                         </ul>
@@ -61,82 +86,34 @@ const Blog = () => {
                 </form>
             </CategorysStyled>
             <ProductsStyled>
-                <Link to="/">
-                    <img 
-                        src="https://www.bmj.com/content/bmj/345/bmj.e4483/F1.large.jpg" 
-                        alt="" />
-                    <div>
-                        <span>Novo</span>
-                        <span>Mais vistos</span>
-                    </div>
-                    <h2>Coeficiente de relação de pearson</h2>
-                    <p>
-                        O que é o coeficiente de Pearson? O coeficiente de Pearson é um tipo 
-                        de coeficiente de correlação que representa a relação entre duas variáveis 
-                        ​​que são medidas no mesmo intervalo ou escala de razão.
-                    </p>
-                </Link>
-                
-                <Link to="/">
-                    <img 
-                        src="https://www.bmj.com/content/bmj/345/bmj.e4483/F1.large.jpg" 
-                        alt="" />
-                    <div>
-                        <span>Novo</span>
-                        <span>Mais vistos</span>
-                    </div>
-                    <h2>Coeficiente de relação de pearson</h2>
-                    <p>
-                        O que é o coeficiente de Pearson? O coeficiente de Pearson é um tipo 
-                        de coeficiente de correlação que representa a relação entre duas variáveis 
-                        ​​que são medidas no mesmo intervalo ou escala de razão.
-                    </p>
-                </Link>
-                <Link to="/">
-                    <img 
-                        src="https://www.bmj.com/content/bmj/345/bmj.e4483/F1.large.jpg" 
-                        alt="" />
-                    <div>
-                        <span>Novo</span>
-                        <span>Mais vistos</span>
-                    </div>
-                    <h2>Coeficiente de relação de pearson</h2>
-                    <p>
-                        O que é o coeficiente de Pearson? O coeficiente de Pearson é um tipo 
-                        de coeficiente de correlação que representa a relação entre duas variáveis 
-                        ​​que são medidas no mesmo intervalo ou escala de razão.
-                    </p>
-                </Link>
-                <Link to="/">
-                    <img 
-                        src="https://www.bmj.com/content/bmj/345/bmj.e4483/F1.large.jpg" 
-                        alt="" />
-                    <div>
-                        <span>Novo</span>
-                        <span>Mais vistos</span>
-                    </div>
-                    <h2>Coeficiente de relação de pearson</h2>
-                    <p>
-                        O que é o coeficiente de Pearson? O coeficiente de Pearson é um tipo 
-                        de coeficiente de correlação que representa a relação entre duas variáveis 
-                        ​​que são medidas no mesmo intervalo ou escala de razão.
-                    </p>
-                </Link>
-                <Link to="/">
-                    <img 
-                        src="https://www.bmj.com/content/bmj/345/bmj.e4483/F1.large.jpg" 
-                        alt="" />
-                    <div>
-                        <span>Novo</span>
-                        <span>Mais vistos</span>
-                    </div>
-                    <h2>Coeficiente de relação de pearson</h2>
-                    <p>
-                        O que é o coeficiente de Pearson? O coeficiente de Pearson é um tipo 
-                        de coeficiente de correlação que representa a relação entre duas variáveis 
-                        ​​que são medidas no mesmo intervalo ou escala de razão.
-                    </p>
-                </Link>
+                {
+                    articles.map(article => (
+                        <Link key={article.id} to={`/article/${article.id}`}>
+                            <img 
+                                src={article.image}
+                                alt={article.name} />
+                            <FlexBoxStyled  alignItens="center" justifyContent="space-between" padding="10px 5px">
+                                <SpanStyled>Novo</SpanStyled>
+                                <SpanStyled>Mais vistos</SpanStyled>
+                            </FlexBoxStyled>
+                            <h2>{article.name}</h2>
+                            <p>
+                                {article.description}
+                            </p>
+                            <FlexBoxStyled  alignItens="center" padding="5px">
+                                <p>
+                                    <AiOutlineEye /> {article.views}
+                                </p>
+                                <p>
+                                    <BsChatDots /> {0}
+                                </p>
+                                <p>
+                                    <AiOutlineHeart /> {0}
+                                </p>
+                            </FlexBoxStyled>
+                        </Link>
+                    ))
+                }
             </ProductsStyled>
         </>
     )

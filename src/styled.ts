@@ -24,9 +24,13 @@ export const GlobalStyled = createGlobalStyle`
     li {
         list-style-type: none;
     }
-    p, a {
+    p {
         font-size: 18px;
         line-height: 28px;
+    }
+    a {
+        font-size: 18px;
+        line-height: 20px;
     }
     h1 {
         font-size: 32px;
@@ -86,4 +90,16 @@ export const MenuIconStyled = styled('div')`
     @media (max-width: 1200px){
         display: flex;
     }
+`
+
+type FlexBoxType = {
+    alignItens?: "center" | "flex-end" | "flex-start",
+    justifyContent?: "space-between" | "center" | "flex-end" | "flex-start",
+    padding?: string
+}
+export const FlexBoxGlobalStyled = styled('div')<FlexBoxType>`
+    display: flex;
+    align-items: ${props => props.alignItens || "flex-start"};
+    justify-content: ${props => props.justifyContent || "flex-start"};
+    padding: ${props => props.padding || "0px"};
 `

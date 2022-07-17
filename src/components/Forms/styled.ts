@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 type InputStyledType = {
-    hoverOption: boolean
+    hoverOption: boolean,
+    active?: boolean
 }
 
 export const InputStyled = styled('input')<InputStyledType>`
@@ -10,8 +11,9 @@ export const InputStyled = styled('input')<InputStyledType>`
     border: solid 1px ${props => props.theme.colors.terc};
     border-radius: 5px;
     transition: 0.3s;
-    background-color: #0000;
+    background-color: ${props => props.active ? props.theme.colors.terc : "#0000"};
     padding: .7em;
+    font-size: 16px;
     ${
         props => props.hoverOption === true && (
             `&:hover{
@@ -24,13 +26,26 @@ export const InputStyled = styled('input')<InputStyledType>`
     }
 `
 
-export const ButtonStyled = styled('button')`
+type ButtonType = {
+    paddding?: string,
+    active?: boolean,
+    margin?: string,
+    hoverBC?: string,
+    hoverC?: string
+}
+
+export const ButtonStyled = styled('button')<ButtonType>`
     margin-bottom: 10px;
     border: solid 1px ${props => props.theme.colors.terc};
     border-radius: 5px;
     transition: 0.3s;
-    background-color: #0000;
-    margin: 0 5px;
+    background-color: ${props => props.active ? props.theme.colors.terc : '#0000'};
+    margin: ${props => props.margin ? props.margin : '0 5px'};
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    transition: 0.2s;
+    padding: ${props => props.paddding || '0px'};
     a {
         padding: .7em;
     }
@@ -38,7 +53,17 @@ export const ButtonStyled = styled('button')`
         cursor: pointer;
     }
     &:hover {
-        background-color:  ${props => props.theme.colors.terc};
+        background-color:  ${props => props.hoverBC || props.theme.colors.terc};
+        color: ${props => props.hoverC || props.theme.colors.text};
+        transition: 0.2s;
+    }
+    &:hover > p{
+        color: ${props => props.hoverC || props.theme.colors.text};
+        transition: 0.2s;
+    }
+    svg {
+        font-size: 20px;
+        margin-right: 10px;
     }
 `
 
@@ -51,4 +76,5 @@ export const TextareaStyled = styled('textarea')`
     background-color: #0000;
     padding: .7em;
     height: 120px;
+    font-size: 16px;
 `

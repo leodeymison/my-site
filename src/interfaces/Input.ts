@@ -3,5 +3,6 @@ export type InputType = {
     placeholder?: string,
     value?: string,
     name?: string,
-    hover?: boolean
+    hover?: boolean,
+    active?: boolean,
 }

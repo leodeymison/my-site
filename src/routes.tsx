@@ -8,6 +8,9 @@ import Project from './layouts/Project';
 import Contact from './layouts/Contact';
 import NotFound from './layouts/NotFound';
 import Blog from './layouts/Blog';
+import Article from './layouts/Blog/article';
+import Login from './layouts/Login';
+import Resister from './layouts/Login/Resister';
 
 // interfaces
 import { LangsType } from './langs/types';
@@ -25,6 +28,9 @@ const Routers:React.FC<RoutersType> = ({ lang }) => {
             } />
             <Route path='/about' element={<About about={lang.pags.about} tec={lang.pags.tec} />} />
             <Route path='/blog' element={<Blog />} />
+            <Route path='/article/:id' element={<Article />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Resister />} />
             <Route path='/projects' element={<Project projects={lang.pags.projects}  />} />
             <Route path='/contact' element={<Contact contact={lang.pags.contact} />} />
         </Routes>

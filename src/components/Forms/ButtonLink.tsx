@@ -4,7 +4,7 @@ import React from 'react';
 import { ButtonStyled } from './styled';
 
 // Interfaces
-import { buttomLinkType } from '../../interfaces/ButtonLink';
+import { buttomLinkType } from '../../interfaces/Button';
 
 const ButtonLink:React.FC<buttomLinkType> = ({text, url, blanck}) => {
     return (
