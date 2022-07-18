@@ -28,6 +28,9 @@ import Input from "../../components/Forms/Input";
 import ButtonFunc from "../../components/Forms/ButtonFunc";
 import NavbarLogin from "../Navbar/Login";
 
+// dataset
+import { FormatDataMilegundos } from '../../utils/data.ds';
+
 const Article = () => {
     const params = useParams<any>()
     const [article, setArticle] = useState<any>({})
@@ -74,11 +77,13 @@ const Article = () => {
                     <p>
                         <BsChatDots /> {0}
                     </p>
-                    <ButtonFunc text={<><AiOutlineHeart /> {0}</>} padding="4px 10px" />
+                    <ButtonFunc text={<><AiOutlineHeart /> {article.likes}</>} padding="4px 10px" />
                 </FlexBoxStyled>
                 
                 <p>
-                    {article.createdAt}
+                    {
+                        FormatDataMilegundos(article.updatedAt > article.createdAt ? (article.updatedAt + " - Atualizado") : article.updatedAt)
+                    }
                 </p>
             </InformationsStyled>
             <br /><br />

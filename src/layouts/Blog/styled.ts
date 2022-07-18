@@ -91,7 +91,11 @@ export const ProductsStyled = styled('div')`
         }
     }
 `
-
+export const ArticleCleanPStyled = styled('p')`
+    text-align: center;
+    width: 100%;
+    padding: 10px 0 37% 0;
+`
 export const InformationsStyled = styled('div')`
     border-top: solid 1px ${props => props.theme.colors.border};
     margin-top: 15px;

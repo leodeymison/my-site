@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // styleds
@@ -9,7 +9,8 @@ import {
     CategorysLiStyled, 
     IconMenuStyled, 
     FlexBoxStyled,
-    SpanStyled
+    SpanStyled,
+    ArticleCleanPStyled
 } from "./styled";
 
 // icons
@@ -24,19 +25,47 @@ import NavbarLogin from "../Navbar/Login";
 // Graphql
 import { gql } from "@apollo/client";
 import Client from '../../config/client-graphql';
-import { ArticleGetAll } from './schemas/Article';
+import { ArticleGetAll, ArticleGetFilter } from './schemas/Article';
 import { CategoryGetAll } from './schemas/Category';
 
-const Blog = () => {
+type BlogType = {
+    lang: string
+}
+
+const Blog:React.FC<BlogType> = ({ lang }) => {
     const [menu, setMenu] = useState(false);
+    const [menuActive, setMenuActive] = useState<string>('all')
     const [categorys, setCategorys] = useState<Array<any>>([])
     const [articles, setArticles] = useState<Array<any>>([])
+
+    function visualization(id:string){
+        Client.mutate({
+            mutation: gql`
+                mutation ($id: String!) {
+                    ArticleUpdateViews (
+                        id: $id
+                    ) {
+                        acknowledged
+                    }
+                }
+            `,
+            variables: {
+                id
+            }
+        })
+    }
 
     function openClosedCategory(){
         setMenu(!menu)
     }
 
     useEffect(() => {
+        changeAllCategory()
+    }, [])
+    
+    function changeAllCategory(){
+        setMenu(false)
+        setMenuActive("all")
         Client.query({
             query: gql`
                 query {
@@ -45,10 +74,30 @@ const Blog = () => {
                 }
             `
         }).then(res => {
-            setCategorys(res.data.CategoryGetAll)
-            setArticles(res.data.ArticleGetAll)
+            const categoryFilter = res.data.CategoryGetAll.filter((categ:any) => categ.lang === lang)
+            setCategorys(categoryFilter)
+            const articleFilter = res.data.ArticleGetAll.filter((arti:any) => arti.lang === lang)
+            setArticles(articleFilter)
         })
-    }, [])
+    }
+
+    function changeCategory(id:any){
+        setMenu(false)
+        setMenuActive(id)
+        Client.query({
+            query: gql`
+                query ($category: String!) {
+                    ${ArticleGetFilter}
+                }
+            `,
+            variables: {
+                category: id
+            }
+        }).then(res => {
+            const articleFilter = res.data.ArticleGetFilter.filter((arti:any) => arti.lang === lang)
+            setArticles(articleFilter)
+        })
+    }
 
     return (
         <>
@@ -72,10 +121,18 @@ const Blog = () => {
                 {
                     menu && (
                         <ul>
-                            <CategorysLiStyled active={true}>Todas</CategorysLiStyled>
+                            <CategorysLiStyled onClick={changeAllCategory} active={menuActive === "all" ? true : false}>Todas</CategorysLiStyled>
                             {
-                                categorys.map(category => (
-                                    <CategorysLiStyled key={category.id}>{category.name}</CategorysLiStyled>
+                                categorys.map((category) => (
+                                    category && (
+                                        <CategorysLiStyled 
+                                            active={menuActive === category._id ? true : false}
+                                            onClick={() => changeCategory(category._id)} 
+                                            key={category._id}>
+                                                {category.name}
+                                        </CategorysLiStyled>
+                                    )
+                                    
                                 ))
                             }
                         </ul>
@@ -87,8 +144,8 @@ const Blog = () => {
             </CategorysStyled>
             <ProductsStyled>
                 {
-                    articles.map(article => (
-                        <Link key={article.id} to={`/article/${article.id}`}>
+                    articles.length !== 0 ? (articles.map(article => (
+                        <Link key={article._id} to={`/article/${article._id}`} onClick={() => visualization(article._id)}>
                             <img 
                                 src={article.image}
                                 alt={article.name} />
@@ -108,11 +165,13 @@ const Blog = () => {
                                     <BsChatDots /> {0}
                                 </p>
                                 <p>
-                                    <AiOutlineHeart /> {0}
+                                    <AiOutlineHeart /> {article.likes}
                                 </p>
                             </FlexBoxStyled>
                         </Link>
-                    ))
+                    ))) : (
+                        <ArticleCleanPStyled>Nenhum artigo nessa categoria</ArticleCleanPStyled>
+                    )
                 }
             </ProductsStyled>
         </>
